@@ -164,7 +164,7 @@ class Ghostscript
      */
     public function getBinaryPath() : string
     {
-        return $this->binaryPath ?? "";
+        return $this->binaryPath ?? "gs";
     }
 
 
