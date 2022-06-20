@@ -14,4 +14,6 @@ abstract class DeviceTypes
     const PNG_MONO = "PNGMono";
     const PNG_MONO_D = "PNGMonoD";
     const PDF = "PDF";
+    const TIFF = "TIFF";
+    const TIFF_GREY = "TIFFGrey";
 }
