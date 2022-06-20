@@ -2,7 +2,7 @@
 
 namespace daandesmedt\PHPGhostscript\Devices;
 
-class TIFFGrey extends TIFF
+class TIFFGray extends TIFF
 {
 
     /**
@@ -10,6 +10,6 @@ class TIFFGrey extends TIFF
      *
      * @var string
      */
-    protected $device = 'tiffgrey';
+    protected $device = 'tiffgray';
 
 }
