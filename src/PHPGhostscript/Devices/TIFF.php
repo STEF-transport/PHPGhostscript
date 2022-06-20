@@ -12,4 +12,14 @@ class TIFF implements DeviceInterface
      */
     protected $device = 'tiff';
 
+    public function getDevice(): string
+    {
+        return $this->device;
+    }
+
+    public function getArguments(): array
+    {
+        return [];
+    }
+
 }
