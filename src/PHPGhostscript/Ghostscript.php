@@ -270,7 +270,7 @@ class Ghostscript
     public function setDevice($device) : Ghostscript
     {
         if (!$device instanceof DeviceInterface) {
-            $classname = 'daandesmedt\\PHPGhostscript\\Devices\\' . ucfirst(strtolower($device));
+            $classname = 'daandesmedt\\PHPGhostscript\\Devices\\' . $device;
             $device = new $classname();
         }
         $this->device = $device;
