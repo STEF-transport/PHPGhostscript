@@ -105,14 +105,14 @@ class Ghostscript
      * 
      * @var int
      */
-    private $pageStart = 1;
+    private $pageStart = null;
 
     /**
      * Page end
      * 
      * @var int
      */
-    private $pageEnd = 1;
+    private $pageEnd = null;
 
     /**
      * Box mode used for rendering
@@ -505,8 +505,13 @@ class Ghostscript
         $command->addArg('-dSAFER');
         $command->addArg('-dNOPLATFONTS');
         $command->addArg('-sOutputFile=' . $this->outputFile);
-        $command->addArg('-dFirstPage=' . $this->pageStart);
-        $command->addArg('-dLastPage=' . $this->pageEnd);
+
+        if (isset($this->pageStart)) {
+            $command->addArg('-dFirstPage=' . $this->pageStart);
+        }
+        if (isset($this->pageEnd)) {
+            $command->addArg('-dLastPage=' . $this->pageEnd);
+        }
 
         if (!$this->isVectorDevice()) {
             $command->addArg('-dTextAlphaBits=' . $this->getTextAntiAliasing());
