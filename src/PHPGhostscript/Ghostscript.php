@@ -128,6 +128,13 @@ class Ghostscript
      */
     private $useCie = false;
 
+	/**
+	 * Custom options
+	 *
+	 * @var array
+	 */
+	private $customOptions = [];
+
 
     /**
      *  Ghostscript constructor
@@ -488,6 +495,12 @@ class Ghostscript
         return "pdfwrite" === $this->device->getDevice();
     }
 
+	public function addCustomOption($customOption): static
+	{
+		$this->customOptions[] = $customOption;
+		return $this;
+	}
+
 
     /**
      * Render 
@@ -532,7 +545,12 @@ class Ghostscript
             $command->addArg($arg);
         }
 
+		foreach ($this->customOptions as $customOption) {
+			$command->addArg($customOption);
+		}
+
         $command->addArg(' ' . $this->file);
+		echo $command->getExecCommand();
 
         if ($command->execute() && $command->getExitCode() == 0) {
             return true;
