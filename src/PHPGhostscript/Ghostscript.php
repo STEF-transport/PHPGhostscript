@@ -550,7 +550,6 @@ class Ghostscript
 		}
 
         $command->addArg(' ' . $this->file);
-		echo $command->getExecCommand();
 
         if ($command->execute() && $command->getExitCode() == 0) {
             return true;
